@@ -103,14 +103,16 @@ import {
         <HeroSection>
           <HeroContent>
             <Container maxWidth="lg">
-              <Stack direction="row" alignItems="center" justifyContent="center" spacing={2} sx={{ mb: 3 }}>
-                <Avatar sx={{ width: 64, height: 64, bgcolor: '#84cc16' }}>
-                  <LocationOn sx={{ fontSize: 32 }} />
-                </Avatar>
+              <Box sx={{ textAlign: 'center', mb: 3 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                  <Avatar sx={{ width: 80, height: 80, bgcolor: '#84cc16', boxShadow: '0 4px 20px rgba(132, 204, 22, 0.3)' }}>
+                    <LocationOn sx={{ fontSize: 40 }} />
+                  </Avatar>
+                </Box>
                 <Typography variant="h2" component="h1" fontWeight="bold" sx={{ fontSize: { xs: '2.5rem', md: '4rem' } }}>
                   The Travelling Spirit
                 </Typography>
-              </Stack>
+              </Box>
               
               <Typography variant="h4" component="h2" sx={{ mb: 2, fontWeight: 500 }}>
                 Tours & Travels
@@ -148,9 +150,11 @@ import {
             <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }, gap: 4 }}>
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #3b82f6, #1e40af)">
-                    <Groups />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #3b82f6, #1e40af)">
+                      <Groups />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Family & Group Tours
                   </Typography>
@@ -162,9 +166,11 @@ import {
               
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #f97316, #ea580c)">
-                    <Favorite />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #f97316, #ea580c)">
+                      <Favorite />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Honeymoon & Couple Getaways
                   </Typography>
@@ -176,9 +182,11 @@ import {
               
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #84cc16, #65a30d)">
-                    <School />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #84cc16, #65a30d)">
+                      <School />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Educational Trips
                   </Typography>
@@ -190,9 +198,11 @@ import {
               
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #3b82f6, #1e40af)">
-                    <Business />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #3b82f6, #1e40af)">
+                      <Business />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Corporate Off-Sites
                   </Typography>
@@ -204,9 +214,11 @@ import {
               
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #f97316, #ea580c)">
-                    <Star />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #f97316, #ea580c)">
+                      <Star />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Religious Yatras
                   </Typography>
@@ -218,9 +230,11 @@ import {
               
               <ServiceCard>
                 <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                  <ServiceIcon gradientbg="linear-gradient(135deg, #84cc16, #65a30d)">
-                    <Schedule />
-                  </ServiceIcon>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+                    <ServiceIcon gradientbg="linear-gradient(135deg, #84cc16, #65a30d)">
+                      <Schedule />
+                    </ServiceIcon>
+                  </Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" sx={{ mb: 1 }}>
                     Weekend Packages
                   </Typography>
@@ -329,44 +343,180 @@ import {
         </Box>
   
         {/* Contact Section */}
-        <Box sx={{ py: 10, bgcolor: '#1e293b' }}>
-          <Container maxWidth="md">
-            <Box textAlign="center" sx={{ mb: 6 }}>
-              <Typography variant="h3" component="h2" fontWeight="bold" sx={{ mb: 2, color: 'white' }}>
+        <Box sx={{ py: 12, bgcolor: '#1e293b', position: 'relative', overflow: 'hidden' }}>
+          {/* Background Pattern */}
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 20% 80%, rgba(132, 204, 22, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
+            zIndex: 1
+          }} />
+          
+          <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+            <Box textAlign="center" sx={{ mb: 8 }}>
+              <Typography 
+                variant="h2" 
+                component="h2" 
+                fontWeight="bold" 
+                sx={{ 
+                  mb: 3, 
+                  color: 'white',
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                  textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+                }}
+              >
                 Get In Touch
               </Typography>
-              <Box sx={{ width: 96, height: 4, bgcolor: '#84cc16', borderRadius: 1, mx: 'auto' }} />
+              <Box sx={{ 
+                width: { xs: 60, md: 96 }, 
+                height: 4, 
+                background: 'linear-gradient(90deg, #84cc16, #65a30d)',
+                borderRadius: 2, 
+                mx: 'auto',
+                boxShadow: '0 2px 8px rgba(132, 204, 22, 0.3)'
+              }} />
             </Box>
             
-            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' }, gap: 4 }}>
-              <Card sx={{ bgcolor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
-                <CardContent>
-                  <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
-                    <Phone sx={{ color: '#84cc16' }} />
-                    <Typography variant="h6" sx={{ color: 'white' }}>Phone</Typography>
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: { 
+                xs: '1fr', 
+                sm: 'repeat(2, 1fr)', 
+                lg: 'repeat(3, 1fr)' 
+              }, 
+              gap: { xs: 3, md: 4 },
+              mb: 6
+            }}>
+              <Card sx={{ 
+                bgcolor: 'rgba(255,255,255,0.08)', 
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: 3,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 25px rgba(132, 204, 22, 0.2)',
+                  borderColor: 'rgba(132, 204, 22, 0.3)'
+                }
+              }}>
+                <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
+                  <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2.5 }}>
+                    <Avatar sx={{ 
+                      bgcolor: '#84cc16', 
+                      width: 40, 
+                      height: 40,
+                      boxShadow: '0 4px 12px rgba(132, 204, 22, 0.3)'
+                    }}>
+                      <Phone sx={{ fontSize: 20 }} />
+                    </Avatar>
+                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 600 }}>
+                      Phone
+                    </Typography>
                   </Stack>
-                  <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.9)' }}>
+                  <Typography variant="h6" sx={{ 
+                    color: 'rgba(255,255,255,0.95)', 
+                    fontWeight: 500,
+                    fontSize: { xs: '1rem', md: '1.125rem' }
+                  }}>
                     +91 9687523434
                   </Typography>
                 </CardContent>
               </Card>
               
-              <Card sx={{ bgcolor: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
-                <CardContent>
-                  <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
-                    <Email sx={{ color: '#84cc16' }} />
-                    <Typography variant="h6" sx={{ color: 'white' }}>Email</Typography>
+              <Card sx={{ 
+                bgcolor: 'rgba(255,255,255,0.08)', 
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: 3,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 25px rgba(132, 204, 22, 0.2)',
+                  borderColor: 'rgba(132, 204, 22, 0.3)'
+                }
+              }}>
+                <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
+                  <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2.5 }}>
+                    <Avatar sx={{ 
+                      bgcolor: '#84cc16', 
+                      width: 40, 
+                      height: 40,
+                      boxShadow: '0 4px 12px rgba(132, 204, 22, 0.3)'
+                    }}>
+                      <Email sx={{ fontSize: 20 }} />
+                    </Avatar>
+                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 600 }}>
+                      Email
+                    </Typography>
                   </Stack>
-                  <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.9)' }}>
-                    surajpt149@gmail.com
+                  <Typography variant="body1" sx={{ 
+                    color: 'rgba(255,255,255,0.95)', 
+                    fontWeight: 500,
+                    fontSize: { xs: '0.875rem', md: '1rem' },
+                    wordBreak: 'break-word'
+                  }}>
+                    travelingspirittours@gmail.com
+                  </Typography>
+                </CardContent>
+              </Card>
+
+              <Card sx={{ 
+                bgcolor: 'rgba(255,255,255,0.08)', 
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: 3,
+                transition: 'all 0.3s ease',
+                gridColumn: { xs: '1', sm: '1 / -1', lg: 'auto' },
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 25px rgba(132, 204, 22, 0.2)',
+                  borderColor: 'rgba(132, 204, 22, 0.3)'
+                }
+              }}>
+                <CardContent sx={{ p: { xs: 2.5, md: 3 } }}>
+                  <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2.5 }}>
+                    <Avatar sx={{ 
+                      bgcolor: '#84cc16', 
+                      width: 40, 
+                      height: 40,
+                      boxShadow: '0 4px 12px rgba(132, 204, 22, 0.3)'
+                    }}>
+                      <LocationOn sx={{ fontSize: 20 }} />
+                    </Avatar>
+                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 600 }}>
+                      Address
+                    </Typography>
+                  </Stack>
+                  <Typography variant="body1" sx={{ 
+                    color: 'rgba(255,255,255,0.95)', 
+                    lineHeight: 1.6,
+                    fontWeight: 500,
+                    fontSize: { xs: '0.875rem', md: '1rem' }
+                  }}>
+                    B - 805 - Fairdeal House,<br />
+                    Opp. Jain Dairy, Near. SwatiK Circle,<br />
+                    C.G. road, Ahmedabad
                   </Typography>
                 </CardContent>
               </Card>
             </Box>
             
-            <Box textAlign="center" sx={{ mt: 6 }}>
-              <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                Ready to create unforgettable memories? Contact us today!
+            <Box textAlign="center" sx={{ mt: 8 }}>
+              <Typography variant="h6" sx={{ 
+                color: 'rgba(255,255,255,0.9)',
+                mb: 2,
+                fontWeight: 500
+              }}>
+                Ready to create unforgettable memories?
+              </Typography>
+              <Typography variant="body1" sx={{ 
+                color: 'rgba(255,255,255,0.7)',
+                fontSize: { xs: '0.875rem', md: '1rem' }
+              }}>
+                Contact us today and let's start planning your next adventure!
               </Typography>
             </Box>
           </Container>
