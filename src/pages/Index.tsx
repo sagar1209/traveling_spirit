@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { 
     Box, 
     Container, 
@@ -24,7 +25,30 @@ import {
     Headphones 
   } from '@mui/icons-material';
   import { styled } from '@mui/material/styles';
-  // import heroImage from "@/assets/hero-travel.jpg"; // TODO: Add this image to src/assets/hero-travel.jpg
+  
+  // Import all images
+  import heroImage1 from "../assets/mountain-adventure-ultra-hd.jpg";
+  import heroImage2 from "../assets/mountain-balloons-ultra-hd.jpg";
+  import heroImage4 from "../assets/mountain-sunrise-ultra-hd.jpg";
+  import heroImage5 from "../assets/mountain-sunset-ultra-hd.jpg";
+  import heroImage6 from "../assets/mountain-valley-joy-ultra-hd.jpg";
+  import heroImage7 from "../assets/family-&-group-tours-travel-spirit.jpg";
+  import heroImage8 from "../assets/honeymoon-&-couple-getaways-travel-spirit.jpg";
+  import heroImage12 from "../assets/weekend-packages-travel-spirit.jpg";
+  import heroImage13 from "../assets/corporate-off-sites-travel-spirit.jpg";
+  
+  // Array of hero images for carousel
+  const heroImages = [
+    heroImage1,
+    heroImage2,
+    heroImage4,
+    heroImage5,
+    heroImage6,
+    heroImage7,
+    heroImage8,
+    heroImage12,
+    heroImage13,
+  ];
   
   // Styled components for custom styling
   const HeroSection = styled(Box)(({ theme }) => ({
@@ -34,11 +58,11 @@ import {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    backgroundImage: `url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
     backgroundColor: '#3b82f6',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    transition: 'background-image 1s ease-in-out',
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -63,6 +87,8 @@ import {
       ? 'linear-gradient(135deg, #3b82f6, #1e40af)' 
       : 'linear-gradient(135deg, #f97316, #ea580c)',
     color: 'white',
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: 600,
     '&:hover': {
       boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
       transform: 'translateY(-2px)',
@@ -96,11 +122,43 @@ import {
     margin: '0 auto',
   });
   
+  // Custom Typography components with updated fonts
+  const HeroTitle = styled(Typography)({
+    fontFamily: '"Playfair Display", "Georgia", serif',
+    fontWeight: 700,
+    letterSpacing: '-0.02em',
+  });
+  
+  const SectionTitle = styled(Typography)({
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: 700,
+    letterSpacing: '-0.01em',
+  });
+  
+  const BodyText = styled(Typography)({
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: 400,
+    lineHeight: 1.6,
+  });
+  
   const Index = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+    // Auto-scroll through hero images
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 4000); // Change image every 4 seconds
+  
+      return () => clearInterval(interval);
+    }, []);
+  
     return (
       <Box sx={{ minHeight: '100vh', bgcolor: '#f8fafc' }}>
         {/* Hero Section */}
-        <HeroSection>
+        <HeroSection sx={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}>
           <HeroContent>
             <Container maxWidth="lg">
               <Box sx={{ textAlign: 'center', mb: 3 }}>
@@ -109,21 +167,31 @@ import {
                     <LocationOn sx={{ fontSize: 40 }} />
                   </Avatar>
                 </Box>
-                <Typography variant="h2" component="h1" fontWeight="bold" sx={{ fontSize: { xs: '2.5rem', md: '4rem' } }}>
+                <Typography variant="h2" component="h1" sx={{ 
+                  fontSize: { xs: '2.5rem', md: '4rem' },
+                  fontFamily: '"Playfair Display", "Georgia", serif',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em'
+                }}>
                   The Travelling Spirit
                 </Typography>
               </Box>
               
-              <Typography variant="h4" component="h2" sx={{ mb: 2, fontWeight: 500 }}>
+              <Typography variant="h4" component="h2" sx={{ 
+                mb: 2, 
+                fontWeight: 600,
+                fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+                letterSpacing: '-0.01em'
+              }}>
                 Tours & Travels
               </Typography>
               
-              <Typography variant="h6" sx={{ mb: 4, opacity: 0.9, lineHeight: 1.6 }}>
+              <BodyText variant="h6" sx={{ mb: 4, opacity: 0.9, lineHeight: 1.6 }}>
                 A Fresh, Modern Travel Startup That Believes Travel Isn't Just About Places<br />
                 <Box component="span" sx={{ color: '#84cc16', fontWeight: 600 }}>
                   It's About Unforgettable Experiences!
                 </Box>
-              </Typography>
+              </BodyText>
               
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
                 <GradientButton gradienttype="travel" size="large" sx={{ fontSize: '1.125rem', px: 4, py: 1.5 }}>
